@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MusicController } from './music.controller';
-import { MusicOutputDTO } from 'src/dto/music.dto';
 import { MusicAppService } from './music.service';
 
 describe('MusicController', () => {
@@ -19,7 +18,7 @@ describe('MusicController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return music list', async () => {
+  it('should return the music list with ten musics', async () => {
     const data = await controller.getMusics();
     expect(data).toBeDefined();
     expect(data.length).toBeDefined();
