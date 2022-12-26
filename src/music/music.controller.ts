@@ -1,9 +1,9 @@
-import { Controller, Get, NotFoundException, Param, Res, StreamableFile } from '@nestjs/common';
-import { createReadStream } from 'fs';
+import { Controller, Get, Header, Headers, HttpStatus, NotFoundException, Param, Res, StreamableFile } from '@nestjs/common';
+import { createReadStream, statSync } from 'fs';
 import { join } from 'path';
 import { MusicOutputDTO } from 'src/dto/music.dto';
 import { MusicAppService } from './music.service';
-import type { Response } from 'express';
+import { Response } from 'express';
 
 @Controller('music')
 export class MusicController {
@@ -14,26 +14,37 @@ export class MusicController {
     const musics = await this.appService.getMusics();
 
     // Omit the path property of MusicDTO
-    return musics.map(({ name, trackNumber }) => ({
+    return musics.map(({ name, trackNumber, author }) => ({
+      author,
       name,
       trackNumber,
     }));
   }
 
   @Get(':id')
-  findOne(@Res({ passthrough: true }) res: Response, @Param() params): StreamableFile {
-    const id = params.id;
+  @Header('Accept-Ranges', 'bytes')
+  @Header('Content-Type', 'audio/mpeg3')
+  findOne(@Param('id') id: number, @Headers() headers, @Res() res: Response) {
+    const range = headers.range;
+    // verify if it's within the music's quantity and it is a partial request
+    if (id > 0 && id <= 10 && range) {
+      const fileName = `${id}.mp3`;
+      const filePath = join(process.cwd(), 'src/data/mp3/', fileName);
+      const { size } = statSync(filePath);
 
-    // verify if it's within the music's quantity
-    if (id > 0 && id <= 10) {
-      const fileName = `${params.id}.mp3`;
-      const file = createReadStream(join(process.cwd(), 'src/data/mp3/', fileName));
-      res.set({
-        'Content-Type': 'audio/mpeg3',
-        'Content-Disposition': `attachment; filename="${fileName}"`,
-      });
-      return new StreamableFile(file);
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = Math.min(start + Math.floor(size * 0.2), size - 1);
+      const chunksize = end - start + 1;
+      const readStreamfile = createReadStream(filePath, { start, end, highWaterMark: 60 });
+      const head = {
+        'Content-Range': `bytes ${start}-${end}/${size}`,
+        'Content-Length': chunksize,
+      };
+      res.writeHead(HttpStatus.PARTIAL_CONTENT, head); //206
+      readStreamfile.pipe(res);
+    } else {
+      throw new NotFoundException();
     }
-    throw new NotFoundException();
   }
 }
