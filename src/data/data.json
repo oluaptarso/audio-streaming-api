@@ -1,12 +1,12 @@
 [
-  { "trackNumber": "01", "name" : "Laxcity - Elysian", "path" : "/data/mp3/1.mp3"},
-  { "trackNumber": "02", "name" : "Idealism - Fragments", "path" : "/data/mp3/2.mp3"},
-  { "trackNumber": "03", "name" : "Allem Iversom - Downwards", "path" : "/data/mp3/3.mp3"},
-  { "trackNumber": "04", "name" : "Gemp - Space Birds", "path" : "/data/mp3/4.mp3"},
-  { "trackNumber": "05", "name" : "Sofasound - Phases Of My Life", "path" : "/data/mp3/5.mp3"},
-  { "trackNumber": "06", "name" : "Engelwood - Oh Baby", "path" : "/data/mp3/6.mp3"},
-  { "trackNumber": "07", "name" : "Hanz - 27", "path" : "/data/mp3/.mp3"},
-  { "trackNumber": "08", "name" : "chief. - Cars By My Window", "path" : "/data/mp3/7.mp3"},
-  { "trackNumber": "09", "name" : "BIDØ - Forest Lullaby", "path" : "/data/mp3/8.mp3"},
-  { "trackNumber": "10", "name" : "Chromonicci - Hyperion_s Tale.", "path" : "/data/mp3/9.mp3"}
+  { "trackNumber": "01", "author" : "Laxcity", "name" : "Elysian", "path" : "/data/mp3/1.mp3"},
+  { "trackNumber": "02", "author" : "Idealism", "name" : "fragments", "path" : "/data/mp3/2.mp3"},
+  { "trackNumber": "03", "author" : "Allem Iversom", "name" : "Downwards", "path" : "/data/mp3/3.mp3"},
+  { "trackNumber": "04", "author" : "Gemp", "name" : "Space Birds", "path" : "/data/mp3/4.mp3"},
+  { "trackNumber": "05", "author" : "Sofasound", "name" : "Phases Of My Life", "path" : "/data/mp3/5.mp3"},
+  { "trackNumber": "06", "author" : "Engelwood", "name" : "Oh Baby", "path" : "/data/mp3/6.mp3"},
+  { "trackNumber": "07", "author" : "Hanz", "name" : "27", "path" : "/data/mp3/7.mp3"},
+  { "trackNumber": "08", "author" : "chief.", "name" : "cars by my window", "path" : "/data/mp3/8.mp3"},
+  { "trackNumber": "09", "author" : "BIDØ", "name" : "Forest Lullaby", "path" : "/data/mp3/9.mp3"},
+  { "trackNumber": "10", "author" : "Chromonicci", "name" : "Hyperion's Tale.", "path" : "/data/mp3/10.mp3"}
 ]
