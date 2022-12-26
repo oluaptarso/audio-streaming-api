@@ -1,7 +1,4 @@
-export interface MusicDTO {
-  trackNumber: string;
-  name: string;
-  path: string;
-}
+import { IMusic } from 'src/interfaces/music.interface';
 
-export type MusicOutputDTO = Omit<MusicDTO, 'path'>;
+export type MusicDTO = IMusic;
+export type MusicOutputDTO = Omit<IMusic, 'path'>;
