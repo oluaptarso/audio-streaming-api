@@ -27,7 +27,7 @@ export class MusicController {
   findOne(@Param('id') id: number, @Headers() headers, @Res() res: Response) {
     const range = headers.range;
     // verify if it's within the music's quantity and it is a partial request
-    if (id > 0 && id <= 10 && range) {
+    if (id > 0 && id <= 8 && range) {
       const fileName = `${id}.mp3`;
       const filePath = join(process.cwd(), 'src/data/mp3/', fileName);
       const { size } = statSync(filePath);

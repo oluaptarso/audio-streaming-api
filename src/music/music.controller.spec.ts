@@ -18,10 +18,10 @@ describe('MusicController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return the music list with ten musics', async () => {
+  it('should return the music list with eight musics', async () => {
     const data = await controller.getMusics();
     expect(data).toBeDefined();
     expect(data.length).toBeDefined();
-    expect(data.length).toBe(10);
+    expect(data.length).toBe(8);
   });
 });

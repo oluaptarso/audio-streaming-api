@@ -6,7 +6,5 @@
   { "trackNumber": "05", "author" : "Sofasound", "name" : "Phases Of My Life", "path" : "/data/mp3/5.mp3"},
   { "trackNumber": "06", "author" : "Engelwood", "name" : "Oh Baby", "path" : "/data/mp3/6.mp3"},
   { "trackNumber": "07", "author" : "Hanz", "name" : "27", "path" : "/data/mp3/7.mp3"},
-  { "trackNumber": "08", "author" : "chief.", "name" : "cars by my window", "path" : "/data/mp3/8.mp3"},
-  { "trackNumber": "09", "author" : "BIDØ", "name" : "Forest Lullaby", "path" : "/data/mp3/9.mp3"},
-  { "trackNumber": "10", "author" : "Chromonicci", "name" : "Hyperion's Tale.", "path" : "/data/mp3/10.mp3"}
+  { "trackNumber": "08", "author" : "chief.", "name" : "cars by my window", "path" : "/data/mp3/8.mp3"}
 ]
