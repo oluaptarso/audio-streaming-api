@@ -1,5 +1,5 @@
 # Audio Streaming Web Application
-This is a [Nest](https://github.com/nestjs/nest) web API, and is a part of [Audio Streaming](https://github.com/oluaptarso/audio-streaming-nestjs-react-redux).
+This is a [Nest](https://github.com/nestjs/nest) web API, and is a part of [Audio Streaming](https://github.com/oluaptarso/audio-streaming-meta).
 
 ## Tech
 - [Nest](https://github.com/nestjs/nest) (TypeScript).
