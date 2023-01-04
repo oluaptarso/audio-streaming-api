@@ -1,4 +1,4 @@
-import { Controller, Get, Header, Headers, HttpStatus, NotFoundException, Param, Res, StreamableFile } from '@nestjs/common';
+import { Controller, Get, Header, Headers, HttpException, HttpStatus, Param, Res } from '@nestjs/common';
 import { createReadStream, statSync } from 'fs';
 import { join } from 'path';
 import { MusicOutputDTO } from 'src/dto/music.dto';
@@ -44,7 +44,7 @@ export class MusicController {
       res.writeHead(HttpStatus.PARTIAL_CONTENT, head); //206
       readStreamfile.pipe(res);
     } else {
-      throw new NotFoundException();
+      throw new HttpException('Invalid Request', HttpStatus.BAD_REQUEST);
     }
   }
 }
